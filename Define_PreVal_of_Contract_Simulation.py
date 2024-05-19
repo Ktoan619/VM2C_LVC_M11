@@ -1,7 +1,6 @@
 import numpy as np
 import random
 import matplotlib.pyplot as plt
-import time
 
 # Constants
 L = 1000
@@ -21,11 +20,11 @@ MaxD = 12
 monthly_probabilities = np.array([2.44, 2.44, 2.44, 13.754, 13.754, 13.755, 13.999, 13.999, 13.999, 3.14, 3.14, 3.14]) / 100
 # print(sum(monthly_probabilities))
 # Monte Carlo parameters
-num_simulations = 100
+num_simulations = 100000
 
 # function to calculate the present value of a bullet
 def calculate_pv(Ai, Ti, Di, r):
-    return (Ai + Ai * r*(Di/12)) / ((1 + r) ** (Ti/12))
+    return ((Ai + Ai * r*(Di/12))*(e**(-r*Ti/12)))
     # return Ai
 
 # Function to generate a list of Ti values based on monthly distribution
